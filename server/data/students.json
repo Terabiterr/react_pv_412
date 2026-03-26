@@ -1,0 +1,37 @@
+[
+  {
+    "id": 3,
+    "firstName": "Maria",
+    "lastName": "Bondarenko",
+    "email": "maria.bondarenko@gmail.com",
+    "age": 19
+  },
+  {
+    "id": 8,
+    "firstName": "Serhii",
+    "lastName": "Marchenko",
+    "email": "serhii.marchenko@gmail.com",
+    "age": 24
+  },
+  {
+    "id": 10,
+    "firstName": "Vladyslav",
+    "lastName": "Hrytsenko",
+    "email": "vladyslav.hrytsenko@gmail.com",
+    "age": 21
+  },
+  {
+    "id": 1773945959837,
+    "firstName": "Ігор",
+    "lastName": "Домбровський",
+    "email": "brolerbrat@gmail.com",
+    "age": 36
+  },
+  {
+    "id": 1774119075598,
+    "firstName": "Mario",
+    "lastName": "Luidjo",
+    "email": "mario@gmail.com",
+    "age": 58
+  }
+]
