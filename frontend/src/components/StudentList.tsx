@@ -1,5 +1,4 @@
 import type { Student } from "../models/Student";
-import { StudentService } from "../services/StudentService";
 import StudentItem from './StudentItem'
 
 interface Props {
