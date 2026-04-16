@@ -1,22 +1,33 @@
-import React, { useState } from "react";
-import { AuthService } from '../services/AuthService';
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { api } from "../services/api";
 
-function LoginPage() {
+const LoginPage = () => {
 
-  const navigate = useNavigate();
+  const { login, isAuth } = useAuth(); // auth
+  const navigate = useNavigate();      // переход
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
+  // если уже авторизован
+  if (isAuth) return <Navigate to="/" />;
+
+  const handleLogin = async () => {
 
     try {
-      await AuthService.login(email, password);
-      navigate("/");
+      const res = await api.post("/auth/login", {
+        email,
+        password
+      });
+
+      login(res.data.token); // сохраняем токен
+
+      navigate("/students"); // переходим
+
     } catch {
-      alert("Login error");
+      alert("Ошибка логина");
     }
   };
 
@@ -24,28 +35,12 @@ function LoginPage() {
     <div>
       <h2>Login</h2>
 
-      <form onSubmit={handleLogin}>
-        <input
-          placeholder="Email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
+      <input onChange={(e) => setEmail(e.target.value)} />
+      <input type="password" onChange={(e) => setPassword(e.target.value)} />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-
-        <button>Login</button>
-      </form>
-
-      <button onClick={() => navigate("/register")}>
-        Go to Register
-      </button>
+      <button onClick={handleLogin}>Login</button>
     </div>
   );
-}
+};
 
 export default LoginPage;

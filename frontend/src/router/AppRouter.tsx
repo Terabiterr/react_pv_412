@@ -4,6 +4,7 @@ import StudentFormPage from '../pages/StudentFormPage'
 import LoginPage from "../components/LoginPage";
 import RegisterPage from "../components/RegisterPage";
 import ProtectedRoute from "./ProtectedRoute";
+import Profile from "../components/Profile";
 
 function AppRouter() {
     
@@ -14,6 +15,7 @@ function AppRouter() {
             <Route path="/edit/:id" element={<StudentFormPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/profile" element={<Profile />} />
             // показати студентів, 
             //якщо є токєн в localStorage
             <Route
