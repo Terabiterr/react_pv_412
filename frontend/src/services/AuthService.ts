@@ -15,6 +15,7 @@ export const AuthService = {
     },
     async register(data: any) {
         const res = await api.post("/auth/register", data)
+        console.log(res.data)
         if (res.data) {
             alert("User register successfully ...")
         }

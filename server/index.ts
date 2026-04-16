@@ -70,8 +70,8 @@ function authMiddleware(req: any, res: any, next: any) {
 //Register user
 app.post("/auth/register", async (req, res) => {
   try {
-    const { firstName, lastName, email, age, password, role } = req.body;
-
+    let { firstName, lastName, email, age, password, role } = req.body;
+    role = "user"
     // Хешування пароля
     const hashedPassword = await bcrypt.hash(password, 10);
 
