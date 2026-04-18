@@ -1,8 +1,10 @@
 import { useAuth } from "../context/AuthContext";
 
 const Profile = () => {
-    const { student, logout } = useAuth()
+    const { student, token, logout } = useAuth()
     if(!student) return null;
+    console.log(student)
+    console.log(token)
     return (
         <div style={{border: "3px solid crimson", padding: "10px"}}>
             <h3>Profile</h3>

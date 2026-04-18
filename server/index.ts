@@ -37,12 +37,16 @@ app.use(cors());
 app.use(express.json());
 const JWT_SECRET = "X7VOSROU5FS6DT0GJ9NWCV1IPZA8BL"; // у реальному проєкті в .env
 // Генерація JWT
-function generateToken(user: any) {
+function generateToken(student: Student) {
   return jwt.sign(
     {
-      id: user.Id,
-      email: user.Email,
-      role: user.Role
+        id: student.id,
+        firstName: student.firstName,
+        lastName: student.lastName,
+        email: student.email,
+        password: student.password,
+        age: student.age,
+        role: student.role
     },
     JWT_SECRET,
     { expiresIn: "1h" }
